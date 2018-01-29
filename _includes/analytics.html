@@ -8,13 +8,4 @@
   gtag('config', 'UA-113288086-1');
 </script>
 
-< ?php
-if(!empty($_SERVER['REMOTE_ADDR'])){
- $ip = $_SERVER['REMOTE_ADDR']; 
-}else { 
-$ip = "(not set)"; 
-}
-?>
-<script type="text/javascript">
-_gaq.push(['_setCustomVar', 1, 'IP', '< ?php echo $ip;?>', 1]);
-</script>    
+
