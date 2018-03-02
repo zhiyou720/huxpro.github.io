@@ -25,6 +25,23 @@ multilingual: true
 </div>
 
 
+
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.css" />
+<script src="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.js"></script>
+
+<div id="map" style="height: 500px; width:500px;"></div>
+
+<script type="text/javascript">
+var map = L.map('map').setView([51.505, -0.09], 15);
+
+L.tileLayer('https://api2.ordnancesurvey.co.uk/mapping_api/v1/service/zxy/EPSG%3A3857/Outdoor 3857/{z}/{x}/{y}.png?key=YOUR_APP_KEY', {
+    maxZoom: 20,
+    minZoom: 7
+}).addTo(map);
+</script>
+
+
+
 {% if site.disqus_username %}
 <!-- disqus 评论框 start -->
 <div class="comment">
