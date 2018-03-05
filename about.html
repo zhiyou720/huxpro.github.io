@@ -43,13 +43,13 @@ multilingual: true
 var map = L.map('map').setView([55.942, -3.18],13);
 var url = "https://api2.ordnancesurvey.co.uk/mapping_api/v1/service/wmts";
 var apiKey = "Ad4SDv3ua7DakXQF8gcAAFJE8xn9j4Hb";
-var marker = L.marker([55.94257, -3.18504]);
-var circle = L.circle([51.508, -0.11], {
+var marker = L.marker([55.94257, -3.18504]).addTo(map);
+var circle = L.circle([55.9425, -3.1850], {
     color: 'red',
     fillColor: '#f03',
     fillOpacity: 0.5,
     radius: 500
-})
+}).addTo(map)
     
 L.tileLayer(url + '?key='+apiKey+'&height=256&width=256&tilematrixSet=EPSG%3A3857&version=1.0.0&style=&layer=Outdoor 3857&SERVICE=WMTS&REQUEST=GetTile&format=image/png&TileMatrix=EPSG:3857:{z}&TileRow={y}&TileCol={x}', {
     maxZoom: 20,
