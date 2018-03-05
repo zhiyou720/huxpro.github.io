@@ -1,36 +1,42 @@
 ---
-layout: post
-title: Design with data
-date: 2018-2-2
-catalog: flase
-tags: [Note,Daily]
-description: 
+layout: page
+description: "一生想做浪漫极客"
 ---
 
-02.28 Design with Data Meeting
-Tutor's thought about our project:
-1.	The timetable is unrealistic and it need to be rescheduled
-2.	The product should be practical and meaningful
+{% for post in paginator.posts %}
+<div class="post-preview">
+    <a href="{{ post.url | prepend: site.baseurl }}">
+        <h2 class="post-title">
+            {{ post.title }}
+        </h2>
+        {% if post.subtitle %}
+        <h3 class="post-subtitle">
+            {{ post.subtitle }}
+        </h3>
+        {% endif %}
+        <div class="post-content-preview">
+            {{ post.content | strip_html | truncate:200 }}
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}
+    </p>
+</div>
+<hr>
+{% endfor %}
 
-What we should do:
-1.	Go to the museum and have a look
-2.	Do more research about exhibition or museum and collect relevant information.
-3.	Post our idea and relevant material in the blog.
-4.	Start thinking about the exhibition stand.
-
-Some inspiration:
-1.	We should collect our own data, but do not need to collect data inside the    
-museum.
-2.  Consider that we may not be able to display inside the museum.
-3.  Refer to cycle counters and think about how people will use out product.
-4.  Try to be the object and think about how they feel. Find something stronger   
-    to support our emotion part.
-
-Next Meeting: Tuesday 6TH March 1:00pm in Evolution House
-Mission should be done before the next meeting:
-1.	By that time, all research (visual, functional, interactive, emotional, exhibit, museum interaction) should be done.
-2.	Everyone should produce 2 concepts relevant to the original one before having a meeting to choose the best 3 concepts.
-
-Besides, we should finish the prototype by 13th March.
-
-
+<!-- Pager -->
+{% if paginator.total_pages > 1 %}
+<ul class="pager">
+    {% if paginator.previous_page %}
+    <li class="previous">
+        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
+    </li>
+    {% endif %}
+    {% if paginator.next_page %}
+    <li class="next">
+        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
+    </li>
+    {% endif %}
+</ul>
+{% endif %}
